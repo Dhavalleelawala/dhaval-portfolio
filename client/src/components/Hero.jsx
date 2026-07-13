@@ -100,6 +100,7 @@ export default function Hero({ profile, portfolio }) {
             <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-accent to-purple-500 opacity-20 blur-2xl" />
             <img
               src={
+                portfolio?.profileImage ||
                 profile?.avatar_url ||
                 "https://avatars.githubusercontent.com/u/88814749?v=4"
               }

@@ -7,6 +7,7 @@ export const profile = {
   location: "Surat, Gujarat, India",
   email: "dhavalleelawala@gmail.com",
   linkedin: "https://www.linkedin.com/in/dhaval-leelawala",
+  profileImage: "/dhaval-profile.jpg",
   studentsRedWhite: "120+",
   studentsCDAC: "200+",
   studentsMentored: "320+",
