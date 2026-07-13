@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --border: #1e1e2e;
+  --text: #f0f0f5;
+  --muted: #8888a0;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+@layer components {
+  .section-container {
+    @apply mx-auto max-w-6xl px-6 py-20;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold tracking-tight md:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mt-3 max-w-2xl text-muted;
+  }
+
+  .card {
+    @apply rounded-2xl border border-border bg-surface p-6 transition-all duration-300;
+  }
+
+  .card:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.05);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-medium text-white transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.25);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-xl border border-border px-6 py-3 font-medium text-text transition-all duration-300;
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    background-color: rgba(99, 102, 241, 0.05);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent;
+  }
+}
