@@ -1,30 +1,30 @@
 import { motion } from "framer-motion";
-import { Code2, Database, GraduationCap, Users } from "lucide-react";
-
-const highlights = [
-  {
-    icon: Code2,
-    title: "Full Stack Dev",
-    desc: "React, Node.js, Express, MongoDB & more",
-  },
-  {
-    icon: GraduationCap,
-    title: "Faculty Member",
-    desc: "Red & White Skill Education, Navsari",
-  },
-  {
-    icon: Users,
-    title: "Mentor",
-    desc: "425+ students guided in live projects",
-  },
-  {
-    icon: Database,
-    title: "Databases",
-    desc: "MongoDB, MySQL, PostgreSQL, Firebase",
-  },
-];
+import { Briefcase, Code2, GraduationCap, Users } from "lucide-react";
 
 export default function About({ profile, portfolio }) {
+  const highlights = [
+    {
+      icon: GraduationCap,
+      title: "Red & White Faculty",
+      desc: `${portfolio?.studentsRedWhite || "120+"} students mentored in Surat`,
+    },
+    {
+      icon: Users,
+      title: "C-DAC Faculty",
+      desc: `${portfolio?.studentsCDAC || "200+"} students trained in full stack`,
+    },
+    {
+      icon: Briefcase,
+      title: "Placement Coordinator",
+      desc: "Bridging education and industry for students",
+    },
+    {
+      icon: Code2,
+      title: "Full Stack Dev",
+      desc: "React, Node.js, MySQL, Firebase & MERN",
+    },
+  ];
+
   return (
     <section id="about" className="section-container">
       <motion.div
@@ -35,7 +35,7 @@ export default function About({ profile, portfolio }) {
       >
         <h2 className="section-title">About Me</h2>
         <p className="section-subtitle">
-          Full Stack Developer, Faculty & Mentor passionate about building and teaching
+          Full Stack Developer, Faculty & Placement Coordinator based in Surat, Gujarat
         </p>
       </motion.div>
 
@@ -52,35 +52,42 @@ export default function About({ profile, portfolio }) {
             <span className="font-medium text-text">
               {profile?.name || "Dhaval Leelawala"}
             </span>
-            , a passionate Full Stack Developer and experienced Faculty Member with a
-            strong foundation in modern web technologies and hands-on teaching expertise.
-            I specialize in building scalable web applications and guiding students
-            toward professional careers in software development.
-          </p>
-          <p>
-            With{" "}
+            , a dedicated Full Stack Development Faculty and Placement Coordinator at{" "}
             <span className="font-medium text-text">
-              {portfolio?.teachingExperience || "2+ years"}
-            </span>{" "}
-            of teaching experience at{" "}
-            <span className="font-medium text-text">
-              Red & White Skill Education, Navsari
+              Red & White Multimedia Education, Surat
             </span>
-            , I&apos;ve mentored{" "}
-            <span className="font-medium text-text">
-              {portfolio?.studentsMentored || "425+"} students
-            </span>{" "}
-            in live projects, internships, and career building — known for practical,
-            project-driven learning and deep industry insights.
+            . I specialize in teaching modern web technologies including front-end and
+            back-end development using React, Node.js, MySQL, Firebase, and more.
           </p>
           <p>
-            Alongside teaching, I maintain{" "}
+            {portfolio?.about ||
+              "With a strong focus on practical learning and real-world projects, I guide students through hands-on development, coding best practices, and deployment strategies."}{" "}
+            I&apos;ve mentored{" "}
+            <span className="font-medium text-text">
+              {portfolio?.studentsRedWhite || "120+"} students at Red & White
+            </span>{" "}
+            and trained{" "}
+            <span className="font-medium text-text">
+              {portfolio?.studentsCDAC || "200+"} students at C-DAC
+            </span>{" "}
+            — helping them grow with confidence and discipline.
+          </p>
+          <p>
+            As a Placement Coordinator, I bridge the gap between education and industry
+            by supporting students in their career journey. I also maintain{" "}
             <span className="font-medium text-text">
               {profile?.public_repos || "60"}+ open-source projects
             </span>{" "}
-            on GitHub spanning admin panels, e-commerce platforms, REST APIs, and
-            authentication systems built with the MERN stack.
+            on GitHub spanning admin panels, e-commerce platforms, and REST APIs.
           </p>
+          <a
+            href={portfolio?.linkedin || "https://www.linkedin.com/in/dhaval-leelawala"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex text-sm text-accent transition-colors hover:underline"
+          >
+            View full profile on LinkedIn →
+          </a>
         </motion.div>
 
         <div className="grid grid-cols-2 gap-4">

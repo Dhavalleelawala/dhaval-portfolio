@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 
 export default function Hero({ profile, portfolio }) {
   const name = profile?.name || "Dhaval Leelawala";
@@ -21,7 +21,7 @@ export default function Hero({ profile, portfolio }) {
           transition={{ duration: 0.7 }}
         >
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
-            {portfolio?.title || "Full Stack Developer | Faculty | Mentor"}
+            {portfolio?.title || "Full Stack Developer | Faculty | Placement Coordinator"}
           </p>
           <h1 className="font-display text-5xl font-bold leading-tight md:text-6xl lg:text-7xl">
             Hi, I&apos;m{" "}
@@ -29,7 +29,7 @@ export default function Hero({ profile, portfolio }) {
           </h1>
           <p className="mt-6 max-w-lg text-lg text-muted">
             {portfolio?.tagline ||
-              "Building scalable MERN stack applications and mentoring developers through practical, project-driven learning."}
+              "Teaching and building with React, Node.js, MySQL, and Firebase through practical, project-driven learning."}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -39,6 +39,15 @@ export default function Hero({ profile, portfolio }) {
             <a href="#contact" className="btn-outline">
               <Mail size={18} />
               Get in Touch
+            </a>
+            <a
+              href={portfolio?.linkedin || "https://www.linkedin.com/in/dhaval-leelawala"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              <Linkedin size={18} />
+              LinkedIn
             </a>
             <a
               href={profile?.html_url || "https://github.com/Dhavalleelawala"}
@@ -51,16 +60,22 @@ export default function Hero({ profile, portfolio }) {
             </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-8 text-sm">
+          <div className="mt-10 grid grid-cols-2 gap-6 text-sm sm:grid-cols-4">
             <div>
               <p className="font-display text-2xl font-bold text-text">
-                {portfolio?.studentsMentored || "425+"}
+                {portfolio?.studentsRedWhite || "120+"}
               </p>
-              <p className="text-muted">Students Mentored</p>
+              <p className="text-muted">Red & White Students</p>
             </div>
             <div>
               <p className="font-display text-2xl font-bold text-text">
-                {portfolio?.teachingExperience || "2+ Years"}
+                {portfolio?.studentsCDAC || "200+"}
+              </p>
+              <p className="text-muted">C-DAC Students</p>
+            </div>
+            <div>
+              <p className="font-display text-2xl font-bold text-text">
+                {portfolio?.teachingExperience || "3+ Years"}
               </p>
               <p className="text-muted">Teaching Experience</p>
             </div>
@@ -70,13 +85,6 @@ export default function Hero({ profile, portfolio }) {
                   {profile.public_repos}+
                 </p>
                 <p className="text-muted">Repositories</p>
-              </div>
-            )}
-            {profile?.hireable && (
-              <div className="flex items-center">
-                <span className="rounded-full bg-green-500/10 px-3 py-1 text-xs font-medium text-green-400">
-                  Available for hire
-                </span>
               </div>
             )}
           </div>
@@ -99,7 +107,7 @@ export default function Hero({ profile, portfolio }) {
               className="relative h-64 w-64 rounded-full border-4 border-border object-cover shadow-2xl md:h-80 md:w-80"
             />
             <div className="absolute -bottom-2 -right-2 rounded-xl border border-border bg-surface px-4 py-2 text-sm font-medium shadow-lg">
-              MERN Developer
+              Faculty & Mentor
             </div>
           </div>
         </motion.div>

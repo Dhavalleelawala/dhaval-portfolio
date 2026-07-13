@@ -1,11 +1,16 @@
 export const profile = {
-  title: "Full Stack Developer | Faculty | Mentor",
+  title: "Full Stack Developer | Faculty | Placement Coordinator",
   tagline:
-    "Passionate Full Stack Developer and experienced Faculty Member building scalable web applications and mentoring the next generation of developers.",
-  location: "Navsari, Gujarat, India",
+    "Dedicated Full Stack Development Faculty and Placement Coordinator specializing in React, Node.js, MySQL, Firebase, and practical project-driven learning.",
+  about:
+    "I'm a dedicated Full Stack Development Faculty and Placement Coordinator passionate about teaching, mentoring, and empowering future developers. I guide students through hands-on development, coding best practices, deployment strategies, and help bridge the gap between education and industry.",
+  location: "Surat, Gujarat, India",
   email: "dhavalleelawala@gmail.com",
-  studentsMentored: "425+",
-  teachingExperience: "2+ Years",
+  linkedin: "https://www.linkedin.com/in/dhaval-leelawala",
+  studentsRedWhite: "120+",
+  studentsCDAC: "200+",
+  studentsMentored: "320+",
+  teachingExperience: "3+ Years",
 };
 
 export const socials = [
@@ -16,7 +21,7 @@ export const socials = [
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/dhaval-leelawala-96540a223",
+    url: "https://www.linkedin.com/in/dhaval-leelawala",
     label: "dhaval-leelawala",
   },
   {
@@ -47,9 +52,9 @@ export const skills = [
   { name: "EJS", category: "backend", level: 82 },
   { name: "PHP", category: "backend", level: 78 },
   { name: "MongoDB", category: "database", level: 90 },
-  { name: "MySQL", category: "database", level: 85 },
+  { name: "MySQL", category: "database", level: 88 },
   { name: "PostgreSQL", category: "database", level: 80 },
-  { name: "Firebase", category: "database", level: 78 },
+  { name: "Firebase", category: "database", level: 85 },
   { name: "Python", category: "tools", level: 82 },
   { name: "Docker", category: "tools", level: 75 },
   { name: "Git & GitHub", category: "tools", level: 92 },
@@ -116,11 +121,18 @@ export const featuredProjects = [
 
 export const experience = [
   {
-    title: "Full Stack Development Faculty & Mentor",
-    company: "Red & White Skill Education, Navsari",
-    period: "2022 — Present",
+    title: "Full Stack Development Faculty & Placement Coordinator",
+    company: "Red & White Multimedia Education, Surat",
+    period: "Dec 2023 — Present",
     description:
-      "Teaching full stack web development with a practical, project-driven approach. Mentoring 425+ students through live projects, internships, and career building with deep industry insights.",
+      "Teaching modern full stack web development with React, Node.js, MySQL, and Firebase. Mentoring 120+ students through hands-on projects, coding best practices, deployment strategies, and coordinating placements to connect students with industry opportunities.",
+  },
+  {
+    title: "Faculty — Full Stack Development",
+    company: "C-DAC (Centre for Development of Advanced Computing), Surat",
+    period: "Apr 2022 — Dec 2023",
+    description:
+      "Delivered full stack development training to 200+ students with focus on practical learning, real-world projects, and industry-ready skills in front-end and back-end technologies.",
   },
   {
     title: "Full Stack Developer",
