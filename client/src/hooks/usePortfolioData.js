@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   getProfile,
   getPortfolioProfile,
+  getStack,
   getSocials,
   getRepos,
   getSkills,
@@ -13,6 +14,7 @@ export function usePortfolioData() {
   const [data, setData] = useState({
     profile: null,
     portfolio: null,
+    stack: [],
     socials: [],
     repos: [],
     skills: [],
@@ -28,6 +30,7 @@ export function usePortfolioData() {
         const [
           profileRes,
           portfolioRes,
+          stackRes,
           socialsRes,
           reposRes,
           skillsRes,
@@ -36,6 +39,7 @@ export function usePortfolioData() {
         ] = await Promise.all([
           getProfile(),
           getPortfolioProfile(),
+          getStack(),
           getSocials(),
           getRepos(),
           getSkills(),
@@ -46,6 +50,7 @@ export function usePortfolioData() {
         setData({
           profile: profileRes.data,
           portfolio: portfolioRes.data,
+          stack: stackRes.data,
           socials: socialsRes.data,
           repos: reposRes.data,
           skills: skillsRes.data,

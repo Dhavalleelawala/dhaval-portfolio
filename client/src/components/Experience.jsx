@@ -1,52 +1,68 @@
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
+import { Briefcase, Code2, GraduationCap } from "lucide-react";
+import SectionHeader from "./SectionHeader";
+
+const typeConfig = {
+  development: { icon: Code2, color: "text-accent bg-accent/10" },
+  teaching: { icon: GraduationCap, color: "text-purple-400 bg-purple-500/10" },
+};
 
 export default function Experience({ experience }) {
   return (
     <section id="experience" className="section-container">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="section-title">Experience</h2>
-        <p className="section-subtitle">
-          My journey as a full stack developer
-        </p>
-      </motion.div>
+      <SectionHeader
+        label="Experience"
+        title="Professional journey"
+        subtitle="Building software and sharing full stack expertise along the way"
+      />
 
-      <div className="relative mt-12 space-y-8">
-        <div className="absolute left-6 top-0 hidden h-full w-px bg-border md:block" />
+      <div className="relative space-y-0">
+        <div className="absolute left-[19px] top-2 hidden h-[calc(100%-16px)] w-px bg-gradient-to-b from-accent/50 via-border to-transparent md:block" />
 
-        {experience.map((item, i) => (
-          <motion.div
-            key={item.title}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="relative flex gap-6 md:pl-16"
-          >
-            <div className="absolute left-4 hidden h-5 w-5 items-center justify-center rounded-full border-2 border-accent bg-bg md:flex">
-              <Briefcase size={10} className="text-accent" />
-            </div>
-            <div className="card flex-1">
-              <div className="flex flex-wrap items-start justify-between gap-2">
-                <div>
-                  <h3 className="font-display text-lg font-semibold text-text">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-accent">{item.company}</p>
-                </div>
-                <span className="rounded-lg bg-border px-3 py-1 text-xs text-muted">
-                  {item.period}
-                </span>
+        {experience.map((item, i) => {
+          const config = typeConfig[item.type] || typeConfig.development;
+          const Icon = config.icon;
+
+          return (
+            <motion.div
+              key={item.title + item.period}
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="relative flex gap-6 pb-8 md:pl-12"
+            >
+              <div
+                className={`absolute left-0 hidden h-10 w-10 items-center justify-center rounded-xl border border-border md:flex ${config.color}`}
+              >
+                <Icon size={16} />
               </div>
-              <p className="mt-3 text-sm text-muted">{item.description}</p>
-            </div>
-          </motion.div>
-        ))}
+
+              <div className="card-hover flex-1">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <div className="mb-1 flex items-center gap-2 md:hidden">
+                      <span className={`rounded-lg p-1.5 ${config.color}`}>
+                        <Icon size={14} />
+                      </span>
+                      <span className="text-xs capitalize text-muted">{item.type}</span>
+                    </div>
+                    <h3 className="font-display text-base font-semibold text-text md:text-lg">
+                      {item.title}
+                    </h3>
+                    <p className="mt-0.5 text-sm text-accent">{item.company}</p>
+                  </div>
+                  <span className="shrink-0 rounded-lg border border-border bg-bg px-3 py-1 font-mono text-xs text-muted">
+                    {item.period}
+                  </span>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

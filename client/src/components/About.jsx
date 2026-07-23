@@ -1,110 +1,102 @@
 import { motion } from "framer-motion";
-import { Briefcase, Code2, GraduationCap, Users } from "lucide-react";
+import { Code2, Database, Layers, Rocket } from "lucide-react";
+import SectionHeader from "./SectionHeader";
+
+const highlights = [
+  {
+    icon: Layers,
+    title: "Frontend",
+    desc: "React, TypeScript, Tailwind — responsive & accessible UI",
+  },
+  {
+    icon: Code2,
+    title: "Backend",
+    desc: "Node.js, Express, REST APIs, auth & real-time with Socket.io",
+  },
+  {
+    icon: Database,
+    title: "Database",
+    desc: "MongoDB, MySQL, PostgreSQL, Firebase — schema design & queries",
+  },
+  {
+    icon: Rocket,
+    title: "Deployment",
+    desc: "Vercel, Docker, Git — shipping production-ready apps",
+  },
+];
 
 export default function About({ profile, portfolio }) {
-  const highlights = [
-    {
-      icon: GraduationCap,
-      title: "Red & White Faculty",
-      desc: `${portfolio?.studentsRedWhite || "120+"} students mentored in Surat`,
-    },
-    {
-      icon: Users,
-      title: "C-DAC Faculty",
-      desc: `${portfolio?.studentsCDAC || "200+"} students trained in full stack`,
-    },
-    {
-      icon: Briefcase,
-      title: "Placement Coordinator",
-      desc: "Bridging education and industry for students",
-    },
-    {
-      icon: Code2,
-      title: "Full Stack Dev",
-      desc: "React, Node.js, MySQL, Firebase & MERN",
-    },
-  ];
-
   return (
     <section id="about" className="section-container">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="section-title">About Me</h2>
-        <p className="section-subtitle">
-          Full Stack Developer, Faculty & Placement Coordinator based in Surat, Gujarat
-        </p>
-      </motion.div>
+      <SectionHeader
+        label="About"
+        title="Building full stack products that scale"
+        subtitle="From UI to database — I handle the entire development lifecycle"
+      />
 
-      <div className="mt-12 grid gap-8 lg:grid-cols-2">
+      <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="space-y-4 text-muted"
+          transition={{ duration: 0.5 }}
+          className="space-y-5 text-muted"
         >
-          <p>
+          <p className="text-base leading-relaxed md:text-lg">
             I&apos;m{" "}
             <span className="font-medium text-text">
               {profile?.name || "Dhaval Leelawala"}
             </span>
-            , a dedicated Full Stack Development Faculty and Placement Coordinator at{" "}
-            <span className="font-medium text-text">
-              Red & White Multimedia Education, Surat
-            </span>
-            . I specialize in teaching modern web technologies including front-end and
-            back-end development using React, Node.js, MySQL, Firebase, and more.
+            , a{" "}
+            <span className="font-medium text-accent">Full Stack Developer</span>{" "}
+            based in {portfolio?.location || "Surat, Gujarat"}. I specialize in
+            building end-to-end web applications with the MERN stack — crafting
+            clean React interfaces, scalable Node.js APIs, and well-structured
+            databases.
           </p>
-          <p>
-            {portfolio?.about ||
-              "With a strong focus on practical learning and real-world projects, I guide students through hands-on development, coding best practices, and deployment strategies."}{" "}
-            I&apos;ve mentored{" "}
-            <span className="font-medium text-text">
-              {portfolio?.studentsRedWhite || "120+"} students at Red & White
-            </span>{" "}
-            and trained{" "}
-            <span className="font-medium text-text">
-              {portfolio?.studentsCDAC || "200+"} students at C-DAC
-            </span>{" "}
-            — helping them grow with confidence and discipline.
+          <p className="leading-relaxed">
+            {portfolio?.about}
           </p>
-          <p>
-            As a Placement Coordinator, I bridge the gap between education and industry
-            by supporting students in their career journey. I also maintain{" "}
+          <p className="leading-relaxed">
+            With{" "}
             <span className="font-medium text-text">
-              {profile?.public_repos || "60"}+ open-source projects
+              {profile?.public_repos || "60"}+ GitHub repositories
             </span>{" "}
-            on GitHub spanning admin panels, e-commerce platforms, and REST APIs.
+            and hands-on experience across admin panels, e-commerce platforms,
+            authentication systems, and REST APIs — I bring both depth and
+            breadth to every project.
           </p>
-          <a
-            href={portfolio?.linkedin || "https://www.linkedin.com/in/dhaval-leelawala"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex text-sm text-accent transition-colors hover:underline"
-          >
-            View full profile on LinkedIn →
-          </a>
+
+          <div className="flex flex-wrap gap-3 pt-2">
+            <a href="#projects" className="btn-primary text-sm">
+              See Projects
+            </a>
+            <a
+              href={portfolio?.linkedin || "https://www.linkedin.com/in/dhaval-leelawala"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline text-sm"
+            >
+              LinkedIn Profile
+            </a>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {highlights.map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="card"
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="card-hover group"
             >
-              <item.icon className="mb-3 text-accent" size={28} />
-              <h3 className="font-display font-semibold text-text">
-                {item.title}
-              </h3>
-              <p className="mt-1 text-sm text-muted">{item.desc}</p>
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent/20">
+                <item.icon size={20} />
+              </div>
+              <h3 className="font-display font-semibold text-text">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{item.desc}</p>
             </motion.div>
           ))}
         </div>

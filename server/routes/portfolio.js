@@ -1,7 +1,11 @@
 import express from "express";
-import { skills, featuredProjects, experience, socials, profile } from "../data/portfolio.js";
+import { skills, featuredProjects, experience, socials, profile, stack } from "../data/portfolio.js";
 
 const router = express.Router();
+
+router.get("/stack", (_req, res) => {
+  res.json(stack);
+});
 
 router.get("/profile", (_req, res) => {
   res.json(profile);
