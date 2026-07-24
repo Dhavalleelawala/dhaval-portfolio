@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: "Message received! (stored in memory — connect MongoDB for persistence)",
+      message: "Message sent successfully! I'll get back to you soon.",
     });
   } catch (error) {
     console.error("Contact error:", error);
