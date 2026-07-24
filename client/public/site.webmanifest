@@ -1,0 +1,17 @@
+{
+  "name": "Dhaval Leelawala — Full Stack Developer",
+  "short_name": "Dhaval.dev",
+  "description": "Portfolio of Dhaval Leelawala, Full Stack Developer specializing in MERN stack.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070b14",
+  "theme_color": "#06b6d4",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

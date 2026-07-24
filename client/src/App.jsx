@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import SeoManager from "./components/SeoManager";
 import { usePortfolioData } from "./hooks/usePortfolioData";
 import { Loader2, Terminal } from "lucide-react";
 
@@ -56,6 +57,7 @@ export default function App() {
 
   return (
     <>
+      <SeoManager profile={profile} />
       <Navbar />
       <main>
         <Hero profile={profile} portfolio={portfolio} stack={stack} />

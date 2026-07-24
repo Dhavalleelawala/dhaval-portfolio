@@ -30,13 +30,14 @@ export default function Hero({ profile, portfolio, stack = [] }) {
           </div>
 
           <h1 className="font-display text-4xl font-bold leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="text-muted">I&apos;m a</span>
-            <br />
-            <span className="gradient-text">Full Stack Developer</span>
+            <span className="gradient-text">{name}</span>
           </h1>
 
-          <p className="mt-2 font-display text-xl text-text/80 md:text-2xl">
-            {name}
+          <p className="mt-3 font-display text-xl text-text/90 md:text-2xl">
+            Full Stack Developer
+          </p>
+          <p className="sr-only">
+            Dhaval Leelawala portfolio — MERN stack developer from Surat, Gujarat, India
           </p>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">
@@ -105,7 +106,7 @@ export default function Hero({ profile, portfolio, stack = [] }) {
                   profile?.avatar_url ||
                   "https://avatars.githubusercontent.com/u/88814749?v=4"
                 }
-                alt={name}
+                alt={`${name} — Full Stack Developer, Dhaval Leelawala portfolio photo`}
                 className="h-72 w-72 rounded-xl object-cover md:h-80 md:w-80"
               />
               <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-border/80 bg-bg/90 px-4 py-3 backdrop-blur-md">
