@@ -4,9 +4,24 @@
   "outputDirectory": "client/dist",
   "installCommand": "npm install && cd server && npm install",
   "framework": null,
+  "headers": [
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!api/|sitemap\\.xml|robots\\.txt|favicon\\.svg|site\\.webmanifest|assets/).*)", "destination": "/index.html" }
   ],
   "functions": {
     "api/index.js": {
